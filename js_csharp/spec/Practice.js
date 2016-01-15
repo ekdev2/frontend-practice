@@ -152,6 +152,167 @@ describe("Testing some strings", function() {
 });
 
 
+describe("testing object literals", function() {
+    var a;
+    
+    beforeAll(function() {
+        a = {
+            name: "name 1",
+            age: 12,
+            emails: {
+                email1: "em1",
+                email2: "em2"
+            }
+        }
+    });
+    
+    
+    it("does this value exist in an object literal", function() {
+        expect(a.emails.email1).toEqual("em1");
+    });
+    
+});
+
+
+describe("testing array literals", function() {
+    var a;
+    var b;
+    
+    beforeAll(function() {
+        a = ["test", "test 2", 4];
+        
+        b = [
+                {
+                name: "name 1",
+                age: 12,
+                emails: {
+                    email1: "em1",
+                    email2: "em2"
+                    }
+                },
+                
+                {
+                name: "name 2",
+                age: 13,
+                emails: {
+                    email1: "em1A",
+                    email2: "em2A"
+                    }
+                }
+            ]
+    });
+    
+    
+    it("does the string and number type array work", function() {
+        expect(a).toContain(4);
+    });
+    
+    
+    it("does the object collection array work", function() {
+        expect(b[1].emails.email1).toEqual("em1A");
+    });
+    
+});
+
+
+
+describe("testing if js can overload - the result should be that it cannot", function() {
+    var a;
+    var b;
+    
+    beforeAll(function() {
+       
+    });
+    
+    
+    it("will it call the first function. nope. cannot overload in js", function() {
+        
+       function test(one){
+           return "a";
+       }
+       
+       function test(one, two){
+           return "b";
+       }
+        
+        expect(test("")).toEqual("b");
+    });
+});
+
+
+describe("arguments function - metadata on function parameters", function() {
+
+    beforeAll(function() {
+       
+    });
+    
+    
+    it("does the function have the right number of arguments", function() {
+        
+       function test(){
+            return arguments.length;
+       }
+
+        expect(test("")).toEqual(1);
+    });
+});
+
+
+describe("Functions are also objects – have properties and member functions", function() {
+
+    var eugene;
+
+    beforeAll(function() {
+        
+       eugene =  function test(){
+                return "value";
+            }
+       
+    });
+    
+    
+    it("does the function have the right number of arguments", function() {
+        expect(typeof eugene).toEqual("function");
+    });
+    
+    
+    it("since the function is also an object lets see some of its properties", function() {
+        expect(eugene.name).toEqual("test");
+    });
+   
+});
+
+
+describe("this keyword", function() {
+
+    var eugene;
+    var f;
+
+    beforeAll(function() {
+        
+       eugene =  function test(){
+                return this;
+            };
+            
+            (
+               f = function(){
+                    return this;
+                }
+            );
+       
+    });
+    
+    it("what does this return in a function if the function is in global scope", function() {
+        expect(eugene().toString()).toEqual("[object Window]");
+    });
+    
+    
+    it("what if the function is not in global scope - still might be because the variable that called it is in global scope", function() {
+        expect(f().toString()).toEqual("[object Window]");
+    });
+});
+
+
 
 
 
