@@ -1,5 +1,8 @@
-CoinCounter.RandomNumber = {
-    randomize:function(){
-        return Math.round(Math.random() * 100);
+
+CoinCounter.RandomNumber = function(min, max){
+    
+    this.randomize = function(){
+        return Math.round(Math.random() * (max - min) + min);
     }
 }
+

@@ -1,5 +1,4 @@
 
-
 describe("testing the timer", function() {
     
     var timerCallback;
@@ -23,15 +22,20 @@ describe("testing the timer", function() {
         expect(timer.showTime()).toEqual(0);
     });
     
+    
+    
 });
 
 
 describe("testing the random number object", function() {
     
     it("the random number object returns random number 1 to 100", function() {
-        var rNumber = CoinCounter.RandomNumber.randomize(1,100); 
+        var random = new CoinCounter.RandomNumber(1,100)
+        var rNumber = random.randomize(); 
+        console.log(rNumber);
         expect(rNumber).toBeGreaterThan(0);
         expect(rNumber).toBeLessThan(101);
+        
         expect(Number.isInteger(rNumber)).toBeTruthy();
     });
     

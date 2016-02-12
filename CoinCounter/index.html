@@ -6,7 +6,7 @@
 
  
 <style>
-    #Timer{
+    .mainStatus{
         font-size:30pt;
     }
 </style>
@@ -16,19 +16,37 @@
 
 <body>
     
-    <div id="Timer">
+    <div id="Timer" class="mainStatus">
         
     </div>
     
+    
+    <div id="Main" style="display:none" class="mainStatus">
+        <div id="RandomNumber">
+            Try to make <span id="RandomNumber2"></div>
+        </div>
+    </div>
+    
+    <div id="Complete" style="display:none" class="mainStatus">
+        Game is done!
+    </div>
+    
+    
+    
 </body>
 
-
-
 <script src="lib/Timer.js"></script>
+<script src="lib/RandomNumber.js"></script>
+<script src="lib/AppStatus.js"></script>
 
 <script>
-   var timer = new CoinCounter.Timer(document.getElementById('Timer'), 21, 1000);
-   timer.showTime();
+  
+   var timer = new CoinCounter.Timer(20, 1000);
+   timer.startSession();
+   
+   var randomNumber = new CoinCounter.RandomNumber(1, 100);
+   
+   document.getElementById('RandomNumber2').innerText = randomNumber.randomize();
     
 </script>
 

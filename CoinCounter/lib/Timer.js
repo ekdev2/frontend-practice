@@ -1,24 +1,23 @@
-
+/*global CoinCounter */
 
 var CoinCounter = {};
 
-CoinCounter.Timer = function(el, startTime, delay){
-    var el = el;
-    var startTime = startTime;
-    var currentTime = startTime;
-    
+CoinCounter.Timer = function(startTime,  timerDelay){
+    var currentTime = startTime + 1;
     
     this.timerCallback = function(){
         currentTime -= 1; 
-        el.innerHTML = currentTime;
+        
+        CoinCounter.AppStatus.displayTime(currentTime);
+        CoinCounter.AppStatus.changeStatus(currentTime, startTime);
     }
     
     this.timeout = function(i){
-        window.setTimeout(this.timerCallback, i * delay);
+        window.setTimeout(this.timerCallback, i *  timerDelay);
     }
 
-    this.showTime = function(){
-        for (var i = 1; i < startTime + 1; i++) {
+    this.startSession = function(){
+        for (var i = 0; i < startTime + 1; i++) {
             this.timeout(i);
         };
         
