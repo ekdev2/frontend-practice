@@ -22,9 +22,8 @@
     
     
     <div id="Main" style="display:none" class="mainStatus">
-        <div id="RandomNumber">
-            Try to make <span id="RandomNumber2"></div>
-        </div>
+        <div id="RandomNumber"> Try to make <span id="RandomNumber2"></span> cents.</div> 
+        <div id="CoinTypes" style="margin-top:20px"></div>
     </div>
     
     <div id="Complete" style="display:none" class="mainStatus">
@@ -38,15 +37,18 @@
 <script src="lib/Timer.js"></script>
 <script src="lib/RandomNumber.js"></script>
 <script src="lib/AppStatus.js"></script>
+<script src="lib/Counter.js"></script>
 
 <script>
-  
-   var timer = new CoinCounter.Timer(20, 1000);
+   var timer = new CoinCounter.Timer(20, 1000, document.getElementById('Main'), document.getElementById('Timer'), document.getElementById('Complete'));
    timer.startSession();
    
    var randomNumber = new CoinCounter.RandomNumber(1, 100);
    
    document.getElementById('RandomNumber2').innerText = randomNumber.randomize();
+   
+   var counter = new CoinCounter.Counter();
+   counter.outputCoinTypes(document.getElementById('CoinTypes'));
     
 </script>
 

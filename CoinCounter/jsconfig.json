@@ -5,6 +5,7 @@
     "files": [
         "lib/Timer.js",
         "lib/RandomNumber.js",
-        "lib/AppStatus.js"
+        "lib/AppStatus.js",
+        "lib/Counter.js"
     ]
 }

@@ -16,7 +16,9 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'lib/Timer.js',
-      'lib/RandomNumber.js',
+      'lib/RandomNUmber.js',
+      'lib/AppStatus.js',
+      'lib/Counter.js',
       'tests/*'
     ],
 
