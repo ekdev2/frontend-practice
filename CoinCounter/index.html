@@ -31,13 +31,13 @@
     </div>
     
     
-    
 </body>
 
 <script src="lib/Timer.js"></script>
 <script src="lib/RandomNumber.js"></script>
 <script src="lib/AppStatus.js"></script>
 <script src="lib/Counter.js"></script>
+<script src="lib/CoinTypes.js"></script>
 
 <script>
    var timer = new CoinCounter.Timer(20, 1000, document.getElementById('Main'), document.getElementById('Timer'), document.getElementById('Complete'));
@@ -48,8 +48,9 @@
    document.getElementById('RandomNumber2').innerText = randomNumber.randomize();
    
    var counter = new CoinCounter.Counter();
-   counter.outputCoinTypes(document.getElementById('CoinTypes'));
-    
+   
+   CoinCounter.CointType.outputCoinTypes(document.getElementById('CoinTypes'), counter);
+  
 </script>
 
 </html>

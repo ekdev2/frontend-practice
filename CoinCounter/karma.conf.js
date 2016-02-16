@@ -19,6 +19,7 @@ module.exports = function(config) {
       'lib/RandomNUmber.js',
       'lib/AppStatus.js',
       'lib/Counter.js',
+      'lib/CoinTypes.js',
       'tests/*'
     ],
 

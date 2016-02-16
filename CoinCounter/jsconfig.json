@@ -6,6 +6,7 @@
         "lib/Timer.js",
         "lib/RandomNumber.js",
         "lib/AppStatus.js",
-        "lib/Counter.js"
+        "lib/Counter.js",
+        "lib/CoinTypes.js"
     ]
 }

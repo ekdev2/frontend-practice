@@ -52,23 +52,36 @@ describe("testing the counter", function() {
         counter = new CoinCounter.Counter();
     });
     
-    it("the coinType to have correct coin types and their values", function() {
-        expect(counter.coinTypes[0].name.toLowerCase()).toBe("penny");
-        expect(counter.coinTypes[0].amount).toBe(1);
-        
-        expect(counter.coinTypes[1].name.toLowerCase()).toBe("nickel");
-        expect(counter.coinTypes[1].amount).toBe(5);
-        
-        expect(counter.coinTypes[2].name.toLowerCase()).toBe("dime");
-        expect(counter.coinTypes[2].amount).toBe(10);
-        
-        expect(counter.coinTypes[3].name.toLowerCase()).toBe("quarter");
-        expect(counter.coinTypes[3].amount).toBe(25);
+    it("the counter total is a number", function() {
+        expect(Number.isInteger(counter.getTotal())).toBeTruthy();
     });
     
-    it("the counter total is a number", function() {
-        expect(Number.isInteger(counter.total)).toBeTruthy();
+    
+    it("the counter total to go up and down by a specified number when adding/subtracting", function() {
+        counter.add(25);
+        expect(counter.getTotal()).toEqual(25);
+        counter.subtract(5);
+        expect(counter.getTotal()).toEqual(20);
     });
+});
+
+
+describe("testing the coin type object", function() {
+    
+    it("the coinType to have correct coin types and their values", function() {
+        expect(CoinCounter.CointType.coinTypes[0].name.toLowerCase()).toBe("penny");
+        expect(CoinCounter.CointType.coinTypes[0].amount).toBe(1);
+        
+        expect(CoinCounter.CointType.coinTypes[1].name.toLowerCase()).toBe("nickel");
+        expect(CoinCounter.CointType.coinTypes[1].amount).toBe(5);
+        
+        expect(CoinCounter.CointType.coinTypes[2].name.toLowerCase()).toBe("dime");
+        expect(CoinCounter.CointType.coinTypes[2].amount).toBe(10);
+        
+        expect(CoinCounter.CointType.coinTypes[3].name.toLowerCase()).toBe("quarter");
+        expect(CoinCounter.CointType.coinTypes[3].amount).toBe(25);
+    });
+   
 });
 
 
