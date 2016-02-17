@@ -17,6 +17,16 @@ CoinCounter.AppStatus.displayTime = function(currentTime, timerDiv) {
 }
 
 
+CoinCounter.AppStatus.displayCoinTypeAmount = function(div, action) {
+    if (action == "add") {
+        div.innerHTML = Number(div.innerHTML) + 1;
+    }
+    else if (action == "subtract" && Number(div.innerHTML) > 0) {
+        div.innerHTML = Number(div.innerHTML) - 1;
+    }
+}
+
+
         
         
         
