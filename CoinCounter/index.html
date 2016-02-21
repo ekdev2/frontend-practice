@@ -19,6 +19,8 @@
 
 <body>
     
+    <h1>Eugenes Coin Counter Game</h1>
+    
     <div id="Timer" class="mainStatus">
         
     </div>
@@ -28,12 +30,18 @@
         <div id="RandomNumber"> Try to make <span id="RandomNumber2"></span> cents.</div> 
         <div id="CoinTypes" style="margin-top:20px"></div>
         
-        <div style="clear:left;margin-top:20px;"><button name="button" onclick="alert(counter.getTotal());alert(randomNumber.getCurrentNumber());">Go!</button></div>
+        <div style="clear:left;margin-top:20px;"><button id="btnGo">Go!</button></div>
         
     </div>
     
     <div id="Complete" style="display:none" class="mainStatus">
-        Game is done!
+        Game Over!<br />
+        
+        <button onclick="CoinCounter.AppStatus.startGame();">New Game</button>
+    </div>
+    
+    <div class="mainStatus">
+        Score: <span id="score">0</span>
     </div>
     
     
@@ -41,21 +49,14 @@
 
 <script src="lib/Timer.js"></script>
 <script src="lib/RandomNumber.js"></script>
-<script src="lib/AppStatus.js"></script>
 <script src="lib/Counter.js"></script>
 <script src="lib/CoinTypes.js"></script>
+<script src="lib/AppStatus.js"></script>
+
 
 <script>
-   var timer = new CoinCounter.Timer(20, 1000, document.getElementById('Main'), document.getElementById('Timer'), document.getElementById('Complete'));
-   timer.startSession();
-   
-   var randomNumber = new CoinCounter.RandomNumber(1, 100);
-   
-   document.getElementById('RandomNumber2').innerText = randomNumber.randomize();
-   
-   var counter = new CoinCounter.Counter();
-   
-   CoinCounter.CointType.outputCoinTypes(document.getElementById('CoinTypes'), counter);
+    
+   CoinCounter.AppStatus.startGame();
   
 </script>
 

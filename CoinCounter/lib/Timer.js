@@ -1,14 +1,14 @@
 
 var CoinCounter = {};
 
-CoinCounter.Timer = function(startTime,  timerDelay, mainDiv, timerDiv, completeDiv){
+CoinCounter.Timer = function(startTime,  timerDelay){
     var currentTime = startTime + 1;
     
     this.timerCallback = function(){
         currentTime -= 1; 
         
-        CoinCounter.AppStatus.displayTime(currentTime, timerDiv);
-        CoinCounter.AppStatus.changeStatus(currentTime, startTime, mainDiv, completeDiv);
+        CoinCounter.AppStatus.displayTime(currentTime);
+        CoinCounter.AppStatus.changeStatus(currentTime, startTime);
     }
     
     this.timeout = function(i){

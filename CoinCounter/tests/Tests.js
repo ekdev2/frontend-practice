@@ -24,9 +24,6 @@ describe("testing the timer", function() {
 
         expect(timer.startSession()).toEqual(0);
     });
-    
-    
-    
 });
 
 
